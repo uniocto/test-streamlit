@@ -22,9 +22,6 @@ app_state = st.experimental_get_query_params()
 session_state = state.get(page_query_params=query_params)
 page_query_params = session_state.page_query_params
 
-
-# The trick here is you can't change the default index based on query params on every run!
-# The *only time* you do that is on the *first* run.
 default_index = (
     Pages.page_names.index(app_state["page"])
     if "page" in app_state and app_state["page"] in Pages.page_names
