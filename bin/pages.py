@@ -33,14 +33,6 @@ class UploadPage(Page):
         submit = form.form_submit_button("Submit")
 
     def _show_excel_data(self, file_path: str):
-        """Show the PDF in Streamlit
-        That returns as html component
-
-        Parameters
-        ----------
-        file_path : [str]
-            Uploaded PDF file path
-        """
         wb = openpyxl.load_workbook(file_path)
         sh = wb["アンケート"]
         return sh["A4"].value
